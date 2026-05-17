@@ -1,5 +1,4 @@
 {
-    "type": "module",
     "name": "telegram-voice-transcriber",
     "version": "1.0.0",
     "description": "Voice note transcriber bot for Telegram",
