@@ -2,6 +2,7 @@ const { Telegraf } = require('telegraf');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 
+// Создаём бота
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => ctx.reply('Привет! Я бот для расшифровки лекций. Просто отправь мне аудио, видео или голосовое сообщение.'));
@@ -77,3 +78,15 @@ bot.launch().then(() => {
 // Включаем graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
+// --- Код-заглушка для Render (микро-веб-сервер) ---
+const http = require('http');
+const PORT = process.env.PORT || 3000; // Render сам скажет, какой порт открыть
+const requestListener = function (req, res) {
+  res.writeHead(200);
+  res.end('Bot is running!');
+};
+const server = http.createServer(requestListener);
+server.listen(PORT, () => {
+  console.log(`Сервер-заглушка запущен на порту ${PORT}`);
+});
