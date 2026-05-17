@@ -1,9 +1,14 @@
 {
-    "name": "telegram-voice-transcriber",
-    "version": "1.0.0",
-    "description": "Voice note transcriber bot for Telegram",
-    "main": "api/bot.js",
-    "scripts": {
-        "deploy": "vercel --prod"
-    }
+  "name": "telegram-whisper-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for voice transcription",
+  "main": "api/bot.js",
+  "scripts": {
+    "start": "node api/bot.js"
+  },
+  "dependencies": {
+    "node-fetch": "2.7.0",
+    "telegraf": "4.16.3",
+    "form-data": "4.0.0"
+  }
 }
